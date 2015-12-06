@@ -1,7 +1,7 @@
 <h1>Blocks</h1>
 
 <ul>
-    <% @blocks.each do |block| %>
-    <li><%= block.name %></li>
-    <% end %>
+  <% @blocks.each do |block| %>
+    <li><%= link_to block.name, block_path(block.id) %></li>
+  <% end %>
 </ul>

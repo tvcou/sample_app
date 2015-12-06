@@ -4,4 +4,8 @@ class BlocksController < ApplicationController
     @blocks = Block.all
   end
 
+  def show
+    @block = Block.find(params[:id])
+  end
+
 end
