@@ -8,4 +8,8 @@ class BlocksController < ApplicationController
     @block = Block.find(params[:id])
   end
 
+  def new
+    @block = Block.new
+  end
+
 end

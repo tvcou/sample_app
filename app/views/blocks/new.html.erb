@@ -1,0 +1,11 @@
+<h1>Add New</h1>
+
+<%= form_for @block do |f| %>
+  <p>
+    <%= f.label :name %> <%= f.text_field :name %> <br />
+    <%= f.label :memo %> <%= f.text_field :memo %> <br />
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
