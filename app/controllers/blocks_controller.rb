@@ -34,6 +34,12 @@ class BlocksController < ApplicationController
     end
   end
 
+  def destroy
+    @block = Block.find(params[:id])
+    @block.destroy
+    redirect_to blocks_path
+  end
+
   private def block_params
     params[:block].permit(:name, :memo)
   end
