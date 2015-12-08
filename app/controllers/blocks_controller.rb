@@ -14,8 +14,11 @@ class BlocksController < ApplicationController
 
   def create
     @block = Block.new(block_params)
-    @block.save
-    redirect_to blocks_path
+    if @block.save
+      redirect_to blocks_path
+    else
+      render 'new'
+    end
   end
  
   private def block_params
