@@ -2,7 +2,10 @@
 
 <ul>
   <% @blocks.each do |block| %>
-    <li><%= link_to block.name, block_path(block.id) %></li>
+    <li>
+      <%= link_to block.name, block_path(block.id) %>
+      <%= link_to "[edit]", edit_block_path(block.id) %>
+    </li>
   <% end %>
 </ul>
 

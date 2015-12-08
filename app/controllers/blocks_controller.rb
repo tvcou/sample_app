@@ -20,7 +20,20 @@ class BlocksController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @block = Block.find(params[:id])
+  end
  
+  def update
+    @block = Block.find(params[:id])
+    if @block.update(block_params)
+      redirect_to blocks_path
+    else
+      render 'edit'
+    end
+  end
+
   private def block_params
     params[:block].permit(:name, :memo)
   end
