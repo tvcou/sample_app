@@ -1,11 +1,12 @@
 class BlocksController < ApplicationController
 
+  before_action :set_block, only: [:show, :edit, :update, :destroy]
+
   def index
     @blocks = Block.all
   end
 
   def show
-    @block = Block.find(params[:id])
   end
 
   def new
@@ -22,11 +23,9 @@ class BlocksController < ApplicationController
   end
 
   def edit
-    @block = Block.find(params[:id])
   end
  
   def update
-    @block = Block.find(params[:id])
     if @block.update(block_params)
       redirect_to blocks_path
     else
@@ -35,7 +34,6 @@ class BlocksController < ApplicationController
   end
 
   def destroy
-    @block = Block.find(params[:id])
     @block.destroy
     redirect_to blocks_path
   end
@@ -44,4 +42,7 @@ class BlocksController < ApplicationController
     params[:block].permit(:name, :memo)
   end
 
+  def set_block
+    @block = Block.find(params[:id])
+  end
 end
